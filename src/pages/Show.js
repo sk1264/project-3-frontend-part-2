@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import './Show.css';
 import Figure from 'react-bootstrap/Figure';
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 
 function Show() {
   const [monster, setMonsterState] = useState(null);
@@ -39,41 +40,41 @@ function Show() {
       {monster ? (
         <>
           <Figure className='img'>
-            <Figure.Image
-              width={171}
-              height={180}
+            <Figure.Image className='img'
+              width={271}
+              height={280}
               alt="171x180"
               src={monster.image}
             />
             <Figure.Caption>
-              {monster.name}
+              <h2 className ='monsterName'>{monster.name}</h2>
             </Figure.Caption>
           </Figure>
 
           <Accordion>
             <Accordion.Item eventKey="0">
-              <Accordion.Header>{monster.commonLocation}</Accordion.Header>
+              <Accordion.Header>Location:</Accordion.Header>
               <Accordion.Body>
-                {monster.commonLocation}
+                {monster.common_locations}
               </Accordion.Body>
             </Accordion.Item>
 
             <Accordion.Item eventKey="1">
-              <Accordion.Header>{monster.description}</Accordion.Header>
+              <Accordion.Header>Description:</Accordion.Header>
               <Accordion.Body>
                 {monster.description}
               </Accordion.Body>
             </Accordion.Item>
 
             <Accordion.Item eventKey="2">
-              <Accordion.Header>{monster.difficulty}</Accordion.Header>
+              <Accordion.Header>Difficulty:</Accordion.Header>
               <Accordion.Body>
                 {monster.difficulty}
               </Accordion.Body>
             </Accordion.Item>
 
             <Accordion.Item eventKey="3">
-              <Accordion.Header>Tips</Accordion.Header>
+              <Accordion.Header>Tips:</Accordion.Header>
               <Accordion.Body>
                 {monster.tips}
               </Accordion.Body>
@@ -87,7 +88,7 @@ function Show() {
             </Accordion.Item>
           </Accordion>
           <Link to={`/${monster._id}/edit`}>
-            <button>EDIT</button>
+            <Button>EDIT</Button>
           </Link>
         </>
       ) : (
