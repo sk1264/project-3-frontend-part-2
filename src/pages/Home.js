@@ -42,12 +42,12 @@ function Home() {
               <Card.Img variant="top" src={monster.image} />
               <Card.Body>
                 <Card.Title>{monster.name}</Card.Title>
-                <Button variant="success" as={Link} to={`/show/${monster.id}`}>See Details</Button>
+                <Button variant="success" as={Link} to={`/${monster._id}`}>See Details</Button>
               </Card.Body>
               <ListGroup className="list-group-flush">
-                <ListGroup.Item>{monster.difficulty}</ListGroup.Item>
-                <ListGroup.Item>{monster.tips}</ListGroup.Item>
-                <ListGroup.Item>{monster.date}</ListGroup.Item>
+                <ListGroup.Item><strong>Location:</strong> {monster.common_locations}</ListGroup.Item>
+                <ListGroup.Item><strong>Description:</strong> {monster.description}</ListGroup.Item>
+                {/* <ListGroup.Item>{monster.date}</ListGroup.Item> */}
               </ListGroup>
             </Card>
           </Col>

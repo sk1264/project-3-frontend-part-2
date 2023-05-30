@@ -73,7 +73,6 @@ function NewMonsterFunc() {
             onChange={(e) => onChangeHandler(e, setImageState)}
           />
           <Form.Text className="text-muted">
-            Add monster name/color
           </Form.Text>
         </Form.Group>
 
