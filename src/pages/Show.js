@@ -18,8 +18,8 @@ function Show() {
       console.log("going to fetch person with id of: ", id);
       try {
         const responseData = await fetch(url);
-        const monsterData = await responseData.json(); //converting our html response that we got from the server into a useable person {object}.
-        console.log(monsterData); //usable person
+        const monsterData = await responseData.json(); 
+        console.log(monsterData); 
         console.log(
           "Setting state, about to rerender..(not remount, just re-render)."
         );
