@@ -1,0 +1,25 @@
+.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.accordion {
+    width: 40%;
+}
+
+.figure-caption {
+    display: flex;
+    justify-content: center;
+}
+
+.figure{
+    margin: 31px;
+}
+
+body {
+    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700703052.jpg");
+    background-size:cover;
+  }
+  

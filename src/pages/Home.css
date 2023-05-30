@@ -1,0 +1,10 @@
+.card-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  body {
+      background: linear-gradient(rgb(222, 253, 150), rgb(137, 212, 239),rgb(121, 220, 120));
+      background-size:stretch;
+      background-repeat: no-repeat;
+  }
