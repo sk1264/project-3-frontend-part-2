@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import MonsterCard from '../components/MonsterCard';
+import './Home.css';
 
 function Home() {
   const centerStyle = {
@@ -47,6 +48,7 @@ function Home() {
               <ListGroup className="list-group-flush">
                 <ListGroup.Item><strong>Location:</strong> {monster.common_locations}</ListGroup.Item>
                 <ListGroup.Item><strong>Description:</strong> {monster.description}</ListGroup.Item>
+                <ListGroup.Item><strong>Defeated:</strong>{monster.defeated ? '✅' : '❌'}</ListGroup.Item>
                 {/* <ListGroup.Item>{monster.date}</ListGroup.Item> */}
               </ListGroup>
             </Card>
