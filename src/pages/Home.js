@@ -39,7 +39,7 @@ function Home() {
       <Row xs={1} sm={2} md={3} lg={4} className="g-4 justify-content-center" style={{ margin: '2 auto' }}>
         {monstersData.map((monster, index) => (
           <Col key={index} className="mb-4">
-            <Card style={{ width: '18rem' }}>
+           <Card style={{ width: '18rem', border: `solid 2px ${monster.defeated ? 'green' : 'black'}` }}>
               <Card.Img variant="top" src={monster.image} />
               <Card.Body>
                 <Card.Title>{monster.name}</Card.Title>
