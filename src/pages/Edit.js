@@ -106,7 +106,7 @@ function Edit() {
 
   return (
     <div className="edit">
-      <Form onSubmit={onSubmitHandler}>
+      <Form onSubmit={onSubmitHandler} className='formSize'>
         <Form.Group className="mb-3" controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
