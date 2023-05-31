@@ -49,6 +49,7 @@ function Home() {
                 <ListGroup.Item><strong>Location:</strong> {monster.common_locations}</ListGroup.Item>
                 <ListGroup.Item><strong>Description:</strong> {monster.description}</ListGroup.Item>
                 {/* <ListGroup.Item>{monster.date}</ListGroup.Item> */}
+                <ListGroup.Item><strong>Defeated:</strong> {monster.defeated ? '✅' : '❌'} </ListGroup.Item>
               </ListGroup>
             </Card>
           </Col>
