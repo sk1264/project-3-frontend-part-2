@@ -4,6 +4,7 @@ import './Show.css';
 import Figure from 'react-bootstrap/Figure';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
+import './Show.css';
 
 function Show() {
   const [monster, setMonsterState] = useState(null);

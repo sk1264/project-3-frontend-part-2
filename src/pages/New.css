@@ -3,23 +3,57 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.accordion {
-    width: 40%;
-}
-
-.figure-caption {
+  }
+  
+  .accordion {
+    width: 70%;
+  }
+  
+  .figure-caption {
     display: flex;
     justify-content: center;
-}
-
-.figure{
+  }
+  
+  .figure {
     margin: 31px;
-}
-
-body {
+  }
+  
+  body {
     background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700703052.jpg");
-    background-size:cover;
+    background-size:stretch;
+  }
+  
+  .new-form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .centered-label {
+    text-align: center;
+  }
+  
+  .new-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .new-form form .centered-label {
+    text-align: center;
+  }
+  
+  .centered-button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 10px;
+  }
+  
+  
+  .new-form form .form-control {
+    width: 300px;
   }
   

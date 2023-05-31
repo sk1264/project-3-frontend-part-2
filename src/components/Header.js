@@ -6,10 +6,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Header() {
   return (
-
-    <Nav className="justify-content-center" activeKey="/home">
-    <Navbar bg="light" expand="lg">
-      <Container>
+    <Navbar expand="lg" variant="light" bg="transparent">
+      <Container className="d-flex justify-content-center">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -19,8 +17,6 @@ function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    </Nav>
-
   );
 }
 

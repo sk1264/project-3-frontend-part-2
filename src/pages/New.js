@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './New.css';
 
 function NewMonsterFunc() {
   const [nameState, setNameState] = useState("");
@@ -40,91 +41,96 @@ function NewMonsterFunc() {
       options
     );
 
-	const newMonsterObj = await responseData.json();
-	console.log(newMonsterObj)
+    const newMonsterObj = await responseData.json();
+    console.log(newMonsterObj)
 
     navigate("/");
   };
 
   return (
     <div className="new">
-      <Form onSubmit={onSubmitHandler}>
+      <Form onSubmit={onSubmitHandler} style={{ padding: '20px' }}>
         <Form.Group className="mb-3" controlId="formName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label className="centered-label">Monster Name</Form.Label>
           <Form.Control
-		  	name="name"
+            name="name"
             type="text"
             placeholder="Enter name"
             value={nameState}
             onChange={(e) => onChangeHandler(e, setNameState)}
+            className="text-center"
           />
           <Form.Text className="text-muted">
-            Add monster name/color
           </Form.Text>
         </Form.Group>
 
-		<Form.Group className="mb-3" controlId="formImage">
-          <Form.Label>Image</Form.Label>
+        <Form.Group className="mb-3" controlId="formImage">
+          <Form.Label className="centered-label">Image</Form.Label>
           <Form.Control
-		  	name="image"
+            name="image"
             type="text"
             placeholder="Enter Image URL"
             value={imageState}
             onChange={(e) => onChangeHandler(e, setImageState)}
+            className="text-center"
           />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formDescription">
-          <Form.Label>Description</Form.Label>
+          <Form.Label className="centered-label">Description</Form.Label>
           <Form.Control
-		  	name="description"
+            name="description"
             type="text"
             placeholder="Description"
             value={descriptionState}
             onChange={(e) => onChangeHandler(e, setDescriptionState)}
+            className="text-center"
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formLocation">
-          <Form.Label>Location Found</Form.Label>
+          <Form.Label className="centered-label">Location Found</Form.Label>
           <Form.Control
-		  	name="location"
+            name="location"
             type="text"
             placeholder="Location"
             value={locationState}
             onChange={(e) => onChangeHandler(e, setLocationState)}
+            className="text-center"
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formDifficulty">
-          <Form.Label>Difficulty Rating</Form.Label>
+          <Form.Label className="centered-label">Difficulty Rating</Form.Label>
           <Form.Control
-		  	name="difficulty"
+            name="difficulty"
             type="text"
             placeholder="Difficulty"
             value={difficultyState}
             onChange={(e) => onChangeHandler(e, setDifficultyState)}
+            className="text-center"
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formTips">
-          <Form.Label>Tips and Tricks</Form.Label>
+          <Form.Label className="centered-label">Tips and Tricks</Form.Label>
           <Form.Control
-		  	name="tips"
+            name="tips"
             type="text"
             placeholder="Tips"
             value={tipsState}
             onChange={(e) => onChangeHandler(e, setTipsState)}
+            className="text-center"
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Defeated" />
         </Form.Group>
-        
-        <Button className="primary" type="submit" value="New Monster">Submit</Button>
+
+        <Button className="primary centered-button" type="submit" value="New Monster">Submit</Button>
       </Form>
     </div>
   );

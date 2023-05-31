@@ -1,10 +1,24 @@
 .card-container {
     margin: 20px;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
   }
 
   body {
       background: linear-gradient(rgb(222, 253, 150), rgb(137, 212, 239),rgb(121, 220, 120));
-      background-size:stretch;
-      background-repeat: no-repeat;
+      background-size:cover;
   }
+  
+  /* body {
+    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700703052.jpg");
+    background-size: stretch;
+  } */
+
+  @font-face {
+    font-family: 'ZeldaFont';
+    src: url('../fonts/wild-breath-of-zelda.otf');
+  }
+  
