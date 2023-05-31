@@ -1,6 +1,7 @@
 # Zelda: Felled Monsters of Hyrule
 Our project will be a fullstack application that allows a user to track defeated monsters in the video game **The Legend of Zelda: Breath of the Wild**. The frontend of the app is intended to be user-friendly, aesthetically designed to correlate the design of Zelda, and connected to the backend routing utilizing CRUD.
-## Link : WILL PROVIDE RENDER LINK AFTER DEPLOYED
+## Link :https://zelda-app.onrender.com/
+## Link to initial frontend github : https://github.com/sk1264/project-3-frontend
 ### **Technology Used**
 - React
 - Javascript
