@@ -4,13 +4,7 @@
   }
 
   body {
-      background: linear-gradient(rgb(222, 253, 150), rgb(137, 212, 239),rgb(121, 220, 120));
+      background: rgb(248, 150, 191);
       background-size:stretch;
       background-repeat: no-repeat;
   }
-
-  @font-face {
-    font-family: 'ZeldaFont';
-    src: url('../fonts/wild-breath-of-zelda.otf');
-  }
-  

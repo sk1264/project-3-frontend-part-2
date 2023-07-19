@@ -1,8 +1,9 @@
-const URL = 'https://zelda-backend.onrender.com'
+// const URL = 'https://pixsly.onrender.com/pixsly'
+const URL = 'http://localhost:8080/pixslys'
 
-export const monstersLoader = async () => {
-    const response = await fetch(URL + '/monsters')
-    const monsters = await response.json()
-    console.log(monsters)
-    return monsters
+export const pixslysLoader = async () => {
+    const response = await fetch(URL + '/pixslys')
+    const pixslys = await response.json()
+    console.log(pixslys)
+    return pixslys
 }

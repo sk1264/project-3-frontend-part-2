@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
-import MonsterCard from '../components/MonsterCard';
+import PixslyCard from '../components/PixslyCard';
 import './Home.css';
 
 function Home() {
@@ -17,39 +17,38 @@ function Home() {
     textAlign: 'center',
   };
 
-  const zeldaFontStyle = {
-    fontFamily: 'ZeldaFont',
-  };
 
-  const [monstersData, setMonstersData] = useState([]);
+  const [pixslysData, setPixslysData] = useState([]);
 
-  const fetchMonsters = async () => {
-    const response = await fetch("https://zelda-backend.onrender.com/monsters");
+  // const fetchPixslys = async () => {
+  //   const response = await fetch("https://pixsly.onrender.com/pixsly");
+  //   const data = await response.json();
+  //   setPixslysData(data);
+  // };
+
+  const fetchPixslys = async () => {
+    const response = await fetch("http://localhost:8080/pixslys");
     const data = await response.json();
-    setMonstersData(data);
+    setPixslysData(data);
   };
 
   useEffect(() => {
-    fetchMonsters();
+    fetchPixslys();
   }, []);
 
-  const monstersMarkup = (
+  const pixslysMarkup = (
     <div style={centerStyle}>
-      <h1 style={zeldaFontStyle}>Felled Monsters of Hyrule</h1>
       <Row xs={1} sm={2} md={3} lg={4} className="g-4 justify-content-center" style={{ margin: '2 auto' }}>
-        {monstersData.map((monster, index) => (
+        {pixslysData.map((pixsly, index) => (
           <Col key={index} className="mb-4">
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={monster.image} />
+              <Card.Img variant="top" src={pixsly.image} />
               <Card.Body>
-                <Card.Title>{monster.name}</Card.Title>
-                <Button variant="success" as={Link} to={`/${monster._id}`}>See Details</Button>
+                <Card.Title>{pixsly.name}</Card.Title>
+                <Button variant="success" as={Link} to={`/${pixsly._id}`}>See Details</Button>
               </Card.Body>
               <ListGroup className="list-group-flush">
-                <ListGroup.Item><strong>Location:</strong> {monster.common_locations}</ListGroup.Item>
-                <ListGroup.Item><strong>Description:</strong> {monster.description}</ListGroup.Item>
-                <ListGroup.Item><strong>Defeated:</strong>{monster.defeated ? '✅' : '❌'}</ListGroup.Item>
-                {/* <ListGroup.Item>{monster.date}</ListGroup.Item> */}
+                <ListGroup.Item><strong>Description:</strong> {pixsly.description}</ListGroup.Item>
               </ListGroup>
             </Card>
           </Col>
@@ -58,16 +57,16 @@ function Home() {
     </div>
   );
 
-  let monsterList;
+  let pixslyList;
 
-  if (monstersData) {
-    monsterList = monstersData.map((monster, index) => {
-      return <MonsterCard key={index} monster={monster} />;
+  if (pixslysData) {
+    pixslyList = pixslysData.map((pixsly, index) => {
+      return <PixslyCard key={index} pixsly={pixsly} />;
     });
   }
   return (
     <div>
-      {monstersData.length > 0 ? monstersMarkup : <div>Loading</div>}
+      {pixslysData.length > 0 ? pixslysMarkup : <div>Loading</div>}
     </div>
   );
 }

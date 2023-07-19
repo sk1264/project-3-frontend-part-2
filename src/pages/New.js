@@ -4,13 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './New.css';
 
-function NewMonsterFunc() {
+function NewPixslyFunc() {
   const [nameState, setNameState] = useState("");
   const [imageState, setImageState] = useState("");
-  const [locationState, setLocationState] = useState("");
   const [descriptionState, setDescriptionState] = useState("");
-  const [difficultyState, setDifficultyState] = useState("");
-  const [tipsState, setTipsState] = useState("");
   const navigate = useNavigate();
 
   const onChangeHandler = (e, setValue) => {
@@ -19,13 +16,10 @@ function NewMonsterFunc() {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    const newMonster = {
+    const newPixsly = {
       name: nameState,
       image: imageState,
-      location: locationState,
       description: descriptionState,
-      difficulty: difficultyState,
-      tips: tipsState
     };
 
     const options = {
@@ -33,16 +27,22 @@ function NewMonsterFunc() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newMonster),
+      body: JSON.stringify(newPixsly),
     };
+    console.log(options)
+
+    // const responseData = await fetch(
+    //   "https://pixsly.onrender.com/pixslys",
+    //   options
+    // );
 
     const responseData = await fetch(
-      "https://zelda-backend.onrender.com/monsters",
+      "http://localhost:8080/pixslys",
       options
     );
 
-	const newMonsterObj = await responseData.json();
-	console.log(newMonsterObj)
+	const newPixslyObj = await responseData.json();
+	console.log(newPixslyObj)
 
     navigate("/");
   };
@@ -60,7 +60,7 @@ function NewMonsterFunc() {
             onChange={(e) => onChangeHandler(e, setNameState)}
           />
           <Form.Text className="text-muted">
-            Add monster name/color
+            Add name
           </Form.Text>
         </Form.Group>
 
@@ -87,48 +87,11 @@ function NewMonsterFunc() {
             onChange={(e) => onChangeHandler(e, setDescriptionState)}
           />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formLocation">
-          <Form.Label>Location Found</Form.Label>
-          <Form.Control
-		  	name="location"
-            type="text"
-            placeholder="Location"
-            value={locationState}
-            onChange={(e) => onChangeHandler(e, setLocationState)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formDifficulty">
-          <Form.Label>Difficulty Rating</Form.Label>
-          <Form.Control
-		  	name="difficulty"
-            type="text"
-            placeholder="Difficulty"
-            value={difficultyState}
-            onChange={(e) => onChangeHandler(e, setDifficultyState)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formTips">
-          <Form.Label>Tips and Tricks</Form.Label>
-          <Form.Control
-		  	name="tips"
-            type="text"
-            placeholder="Tips"
-            value={tipsState}
-            onChange={(e) => onChangeHandler(e, setTipsState)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Defeated" />
-        </Form.Group>
         
-        <Button className="primary" type="submit" value="New Monster">Submit</Button>
+        <Button className="primary" type="submit" value="New Post">Submit</Button>
       </Form>
     </div>
   );
 }
 
-export default NewMonsterFunc;
+export default NewPixslyFunc;

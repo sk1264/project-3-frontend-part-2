@@ -6,30 +6,27 @@ import Form from 'react-bootstrap/Form';
 
 function Edit() {
 
-  const [monster, setMonsterState] = useState(null);
+  const [pixsly, setPixslyState] = useState(null);
   const [number, setNumber] = useState(5);
 
   const [nameState, setNameState] = useState('');
   const [descriptionState, setDescriptionState] = useState('');
-  const [locationState, setLocationState] = useState('');
-  const [difficultyState, setDifficultyState] = useState('');
-  const [tipsState, setTipsState] = useState('');
-  const [defeatedState, setDefeatedState] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const url = `https://zelda-backend.onrender.com/monsters/${id}`; 
+  // const url = `https://pixsly.onrender.com/pixsly/${id}`; 
+  const url = `http://localhost:8080/pixslys/${id}`; 
 
   useEffect(() => {
-    const fetchMonster = async () => {
+    const fetchPixsly = async () => {
       console.log("going to fetch person with id of: ", id);
       try {
         const responseData = await fetch(url);
-        const monsterData = await responseData.json(); 
-        console.log(monsterData); 
+        const pixslyData = await responseData.json(); 
+        console.log(pixslyData); 
         console.log(
           "Setting state, about to rerender..(not remount, just re-render)."
         );
-        setMonsterState(monsterData);
+        setPixslyState(pixslyData);
       } catch (error) {
         console.error(error);
       }
@@ -37,29 +34,21 @@ function Edit() {
     //this is the code that gets activated
     console.log("#2: inside useeffect...component mounted, now we are here.");
 
-    fetchMonster(); //fetching data and setting state
+    fetchPixsly(); //fetching data and setting state
   }, [id, number]);
 
   useEffect(() => {
-    if (monster) {
-      setNameState(monster.name);
-      setDescriptionState(monster.description);
-      setLocationState(monster.common_locations);
-      setDifficultyState(monster.difficulty);
-      setTipsState(monster.tips);
-      setDefeatedState(monster.defeated);
+    if (pixsly) {
+      setNameState(pixsly.name);
+      setDescriptionState(pixsly.description);
     }
-  }, [monster]);
+  }, [pixsly]);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     const Edit = {
       name: nameState,
       description: descriptionState,
-      common_locations: locationState,
-      difficulty: difficultyState,
-      tips: tipsState,
-      defeated: defeatedState,
     };
     console.log(Edit);
 
@@ -71,7 +60,8 @@ function Edit() {
       body: JSON.stringify(Edit),
     };
 
-    const url = `https://zelda-backend.onrender.com/monsters/${id}`;
+    // const url = `https://pixsly.onrender.com/pixsly/${id}`;
+    const url = `http://localhost:8080/pixslys/${id}`;
 
     try {
       const responseData = await fetch(url, options);
@@ -93,7 +83,8 @@ function Edit() {
       method: "DELETE",
     };
 
-    const url = `https://zelda-backend.onrender.com/monsters/${id}`;
+    // const url = `https://pixsly.onrender.com/pixsly/${id}`;
+    const url = `http://localhost:8080/pixslys/${id}`;
 
     try {
       const responseData = await fetch(url, options);
@@ -115,7 +106,7 @@ function Edit() {
             value={nameState}
             onChange={(e) => onChangeHandler(e, setNameState)}
           />
-          <Form.Text className="text-muted">Add monster name/color</Form.Text>
+          <Form.Text className="text-muted">Add name/color</Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formDescription">
@@ -125,45 +116,6 @@ function Edit() {
             placeholder="Description"
             value={descriptionState}
             onChange={(e) => onChangeHandler(e, setDescriptionState)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formLocation">
-  <Form.Label>Location Found</Form.Label>
-  <Form.Control
-    type="text"
-    placeholder="Location"
-    value={locationState}
-    onChange={(e) => onChangeHandler(e, setLocationState)}
-  />
-</Form.Group>
-
-        <Form.Group className="mb-3" controlId="formDifficulty">
-          <Form.Label>Difficulty Rating</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Difficulty"
-            value={difficultyState}
-            onChange={(e) => onChangeHandler(e, setDifficultyState)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formTips">
-          <Form.Label>Tips and Tricks</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Tips"
-            value={monster && monster.tips}
-            onChange={(e) => onChangeHandler(e, setTipsState)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            label="Defeated"
-            checked={monster && monster.defeated}
-            onChange={(e) => setDefeatedState(e.target.checked)}
           />
         </Form.Group>
 
